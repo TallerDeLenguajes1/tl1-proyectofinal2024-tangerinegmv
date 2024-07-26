@@ -1,0 +1,14 @@
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/bin/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/bin/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.deps.json
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/bin/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.runtimeconfig.json
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/bin/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.dll
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/bin/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.pdb
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.GeneratedMSBuildEditorConfig.editorconfig
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.AssemblyInfoInputs.cache
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.AssemblyInfo.cs
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.csproj.CoreCompileInputs.cache
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.dll
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/refint/tl1-proyectofinal2024-tangerinegmv.dll
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.pdb
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/tl1-proyectofinal2024-tangerinegmv.genruntimeconfig.cache
+/home/maria-victoria/taller 1/tl1-proyectofinal2024-tangerinegmv/obj/Debug/net8.0/ref/tl1-proyectofinal2024-tangerinegmv.dll

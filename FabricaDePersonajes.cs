@@ -73,6 +73,31 @@ namespace EspacioFabricaDePersonajes
 
     public class PersonajesJson
     {
-        //public void GuardarPersonajes
+        public void GuardarPersonajes(List<Personaje> Lista, string fileName)
+        {
+            string json = JsonSerializer.Serialize(Lista);
+            File.WriteAllText(fileName,json);
+        }
+
+        public List<Personaje> LeerPersonajes(string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                String jsonString = File.ReadAllText(fileName);
+                List<Personaje> personajesDeserializados = JsonSerializer.Deserialize<List<Personaje>>(jsonString);
+                return personajesDeserializados;
+            }else
+            {
+                System.Console.WriteLine("El archivo de nombre: " + fileName + " no existe");
+                return null;
+            }
+        }
+
+        public bool Existe(string fileName)
+        {
+            return File.Exists(fileName);
+        }
+
     }
 }
+//https://api.namefake.com/

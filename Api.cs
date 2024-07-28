@@ -1,7 +1,7 @@
 namespace EspacioApi
 {
     using System.Text.Json.Serialization;
-       public class Root
+       public class Nombres
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }

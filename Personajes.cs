@@ -9,7 +9,7 @@ namespace EspacioPersonajes
         Navi,
     }
    
-    public class Personajes
+    public class Personaje
     {
         private int velocidad;
         private int destreza;

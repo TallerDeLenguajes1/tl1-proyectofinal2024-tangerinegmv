@@ -3,10 +3,10 @@ namespace EspacioPersonajes
 {
     public enum TipoPersonaje
     {
-        Wookie,
-        Klingon,
-        Ood,
-        Navi,
+        Colosal,
+        Acorazado,
+        Bestia,
+        Ataque,
     }
    
     public class Personaje

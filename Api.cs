@@ -1,106 +1,137 @@
 namespace EspacioApi
 {
+    using System.Text.Json;
     using System.Text.Json.Serialization;
-       public class Nombres
+    // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
+    public class Group
     {
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string name { get; set; }
 
-        [JsonPropertyName("address")]
-        public string Address { get; set; }
+        [JsonPropertyName("sub_groups")]
+        public List<string> sub_groups { get; set; }
+    }
 
-        [JsonPropertyName("latitude")]
-        public double Latitude { get; set; }
+    public class Info
+    {
+        [JsonPropertyName("count")]
+        public int count { get; set; }
 
-        [JsonPropertyName("longitude")]
-        public double Longitude { get; set; }
+        [JsonPropertyName("pages")]
+        public int pages { get; set; }
 
-        [JsonPropertyName("maiden_name")]
-        public string MaidenName { get; set; }
+        [JsonPropertyName("next_page")]
+        public string next_page { get; set; }
 
-        [JsonPropertyName("birth_data")]
-        public DateTimeOffset BirthData { get; set; }
+        [JsonPropertyName("prev_page")]
+        public object prev_page { get; set; }
+    }
 
-        [JsonPropertyName("phone_h")]
-        public string PhoneH { get; set; }
+    public class Relative
+    {
+        [JsonPropertyName("family")]
+        public string family { get; set; }
 
-        [JsonPropertyName("phone_w")]
-        public string PhoneW { get; set; }
+        [JsonPropertyName("members")]
+        public List<string> members { get; set; }
+    }
 
-        [JsonPropertyName("email_u")]
-        public string EmailU { get; set; }
+    public class Personajes
+    {
+        [JsonPropertyName("id")]
+        public int id { get; set; }
 
-        [JsonPropertyName("email_d")]
-        public string EmailD { get; set; }
+        [JsonPropertyName("name")]
+        public string name { get; set; }
 
-        [JsonPropertyName("username")]
-        public string Username { get; set; }
+        [JsonPropertyName("img")]
+        public string img { get; set; }
 
-        [JsonPropertyName("password")]
-        public string Password { get; set; }
+        [JsonPropertyName("alias")]
+        public List<string> alias { get; set; }
 
-        [JsonPropertyName("domain")]
-        public string Domain { get; set; }
+        [JsonPropertyName("species")]
+        public List<string> species { get; set; }
 
-        [JsonPropertyName("useragent")]
-        public string Useragent { get; set; }
+        [JsonPropertyName("gender")]
+        public string gender { get; set; }
 
-        [JsonPropertyName("ipv4")]
-        public string Ipv4 { get; set; }
-
-        [JsonPropertyName("macaddress")]
-        public string Macaddress { get; set; }
-
-        [JsonPropertyName("plasticcard")]
-        public string Plasticcard { get; set; }
-
-        [JsonPropertyName("cardexpir")]
-        public string Cardexpir { get; set; }
-
-        [JsonPropertyName("bonus")]
-        public long Bonus { get; set; }
-
-        [JsonPropertyName("company")]
-        public string Company { get; set; }
-
-        [JsonPropertyName("color")]
-        public string Color { get; set; }
-
-        [JsonPropertyName("uuid")]
-        public Guid Uuid { get; set; }
+        [JsonPropertyName("age")]
+        public object age { get; set; }
 
         [JsonPropertyName("height")]
-        public long Height { get; set; }
+        public string height { get; set; }
 
-        [JsonPropertyName("weight")]
-        public double Weight { get; set; }
+        [JsonPropertyName("relatives")]
+        public List<Relative> relatives { get; set; }
 
-        [JsonPropertyName("blood")]
-        public string Blood { get; set; }
+        [JsonPropertyName("birthplace")]
+        public string birthplace { get; set; }
 
-        [JsonPropertyName("eye")]
-        public string Eye { get; set; }
+        [JsonPropertyName("residence")]
+        public string residence { get; set; }
 
-        [JsonPropertyName("hair")]
-        public string Hair { get; set; }
+        [JsonPropertyName("status")]
+        public string status { get; set; }
 
-        [JsonPropertyName("pict")]
-        public string Pict { get; set; }
+        [JsonPropertyName("occupation")]
+        public string occupation { get; set; }
 
-        [JsonPropertyName("url")]
-        public Uri Url { get; set; }
+        [JsonPropertyName("groups")]
+        public List<Group> groups { get; set; }
 
-        [JsonPropertyName("sport")]
-        public string Sport { get; set; }
+        [JsonPropertyName("roles")]
+        public List<string> roles { get; set; }
 
-        [JsonPropertyName("ipv4_url")]
-        public string Ipv4Url { get; set; }
-
-        [JsonPropertyName("email_url")]
-        public string EmailUrl { get; set; }
-
-        [JsonPropertyName("domain_url")]
-        public string DomainUrl { get; set; }
+        [JsonPropertyName("episodes")]
+        public List<string> episodes { get; set; }
     }
+
+    public class Root
+    {
+        [JsonPropertyName("info")]
+        public Info info { get; set; }
+
+        [JsonPropertyName("results")]
+        public List<Personajes> Items { get; set; }
+    }
+
+    public class ConsumoDeApi
+    {
+        public async Task<List<string>> TraerInfoAPI()
+        {
+            try
+            {
+                HttpClient cliente = new HttpClient();
+                var url = "https://api.attackontitanapi.com/characters";
+                HttpResponseMessage respuesta = await cliente.GetAsync(url);
+                respuesta.EnsureSuccessStatusCode();
+
+                string responseBody = await respuesta.Content.ReadAsStringAsync();
+                var contenidoApi = JsonSerializer.Deserialize<Root>(responseBody, new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
+                
+                //saco los nombres de los personajes de la api
+                List<string> nombres = new List<string>();
+                if (contenidoApi != null && contenidoApi.Items != null)
+                {
+                    foreach (var personaje in contenidoApi.Items)
+                {
+                    nombres.Add(personaje.name);
+                   
+                }
+                }
+                
+                
+                return nombres;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex}");
+                return null;
+            }
+        }
+    }
+
+
 }
 

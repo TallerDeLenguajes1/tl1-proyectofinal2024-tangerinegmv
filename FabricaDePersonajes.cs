@@ -4,6 +4,8 @@ namespace EspacioFabricaDePersonajes
     using EspacioApi;
     using System.Text.Json;
     using System.Net;
+    using Microsoft.VisualBasic;
+    using System.Runtime.CompilerServices;
 
     public class FabricaDePersonajes
     {
@@ -18,7 +20,7 @@ namespace EspacioFabricaDePersonajes
             Nuevo.Apodo = apodo;
             Nuevo.Tipo = type;
 
-            if (Nuevo.Tipo == TipoPersonaje.Klingon)
+            if (Nuevo.Tipo == TipoPersonaje.Colosal)
             {
                 Nuevo.Fuerza=random.Next(9,11);
                 Nuevo.Velocidad = random.Next(5,11);
@@ -30,7 +32,7 @@ namespace EspacioFabricaDePersonajes
                 Nuevo.Edad = start.Year - Nuevo.FecNac.Year;
             }
 
-            if (Nuevo.Tipo == TipoPersonaje.Navi)
+            if (Nuevo.Tipo == TipoPersonaje.Acorazado)
             {
                 Nuevo.Fuerza=random.Next(7,11);
                 Nuevo.Velocidad = random.Next(3,6);
@@ -42,7 +44,7 @@ namespace EspacioFabricaDePersonajes
                 Nuevo.Edad =  Nuevo.FecNac.Year - start.Year;
             }
             
-            if (Nuevo.Tipo == TipoPersonaje.Ood)
+            if (Nuevo.Tipo == TipoPersonaje.Ataque)
             {
                 Nuevo.Fuerza=random.Next(7,11);
                 Nuevo.Velocidad = random.Next(7,11);
@@ -54,7 +56,7 @@ namespace EspacioFabricaDePersonajes
                 Nuevo.Edad =  Nuevo.FecNac.Year - start.Year;
             }
 
-            if (Nuevo.Tipo == TipoPersonaje.Wookie)
+            if (Nuevo.Tipo == TipoPersonaje.Bestia)
             {
                 Nuevo.Fuerza=random.Next(5,8);
                 Nuevo.Velocidad = random.Next(2,4);
@@ -98,6 +100,18 @@ namespace EspacioFabricaDePersonajes
             return File.Exists(fileName);
         }
 
+        public void mostrarPersonajes(List<Personaje> lista)
+        {
+            foreach (var personaje in lista)
+            {
+                System.Console.WriteLine("Jugador de nombre: " + personaje.Nombre + ", Apodo: " + personaje.Apodo +", Edad: "+ personaje.Edad );
+                System.Console.WriteLine("VEL.: " + personaje.Velocidad + " Destreza: " + personaje.Destreza + " Fuerza: " + personaje.Fuerza);
+                System.Console.WriteLine("Nivel: " + personaje.Nivel + " Armadura: " + personaje.Armadura + " Salud: " + personaje.Salud);
+            }
+        }
+
     }
+
+    
 }
 //https://api.namefake.com/

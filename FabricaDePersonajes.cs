@@ -1,25 +1,48 @@
+using EspacioPersonajes;
+using EspacioApi;
+using System.Text.Json;
+using System.Net;
+using Microsoft.VisualBasic;
+using System.Runtime.CompilerServices;
 namespace EspacioFabricaDePersonajes
 {
-    using EspacioPersonajes;
-    using EspacioApi;
-    using System.Text.Json;
-    using System.Net;
-    using Microsoft.VisualBasic;
-    using System.Runtime.CompilerServices;
+   
 
     public class FabricaDePersonajes
     {
-        static DateTime start = new DateTime(2700,1,1);
-        static DateTime end = new DateTime(3000,1,1);
-        static int range = (end - start).Days;
-        public Personaje NuevoPersonaje(string Nombre, TipoPersonaje type, string apodo)
+        //tipo de personaje aleatorio
+        private static T DecideTipo<T>() where T : Enum
+        {
+            Random random = new Random();
+
+            T[] valores = (T[])Enum.GetValues(typeof(T));
+            int indice = random.Next(valores.Length);
+
+            return valores[indice];
+        }
+
+        //genera una fecha de nacimiento aleatoria
+        private static DateTime FechaNac(int edad)
+        {   
+            int currentYear = 724;
+            Random random = new Random();
+            int birthYear = currentYear - edad;
+            DateTime start = new DateTime(birthYear, 1, 1);
+            DateTime end = new DateTime(birthYear, 12, 31);
+            int range = (end - start).Days;
+            DateTime FecNac = start.AddDays(random.Next(range + 1));
+            return FecNac;
+        }
+        private static Personaje NuevoPersonaje(PersonajeDatos personaje)
         {
             Random random = new Random();
             var Nuevo = new Personaje();
-            Nuevo.Nombre = Nombre;
-            Nuevo.Apodo = apodo;
-            Nuevo.Tipo = type;
-
+            Nuevo.Nombre = personaje.name;
+            Nuevo.Tipo = DecideTipo<TipoPersonaje>();
+            Nuevo.Edad = personaje.age;
+            Nuevo.FecNac = FechaNac(Nuevo.Edad);
+            Nuevo.Genero = personaje.gender;
+            Nuevo.Salud = 100;
             if (Nuevo.Tipo == TipoPersonaje.Colosal)
             {
                 Nuevo.Fuerza=random.Next(9,11);
@@ -27,9 +50,7 @@ namespace EspacioFabricaDePersonajes
                 Nuevo.Destreza = random.Next(4,6);
                 Nuevo.Nivel = random.Next(1,5);
                 Nuevo.Armadura = random.Next(1,2);
-                Nuevo.Salud = random.Next(30,45);
-                Nuevo.FecNac = start.AddDays(random.Next(range));
-                Nuevo.Edad = start.Year - Nuevo.FecNac.Year;
+                
             }
 
             if (Nuevo.Tipo == TipoPersonaje.Acorazado)
@@ -39,9 +60,6 @@ namespace EspacioFabricaDePersonajes
                 Nuevo.Destreza = random.Next(1,4);
                 Nuevo.Nivel = random.Next(1,5);
                 Nuevo.Armadura = random.Next(3,5);
-                Nuevo.Salud = random.Next(50,80);
-                Nuevo.FecNac = start.AddDays(random.Next(range));
-                Nuevo.Edad =  Nuevo.FecNac.Year - start.Year;
             }
             
             if (Nuevo.Tipo == TipoPersonaje.Ataque)
@@ -51,10 +69,8 @@ namespace EspacioFabricaDePersonajes
                 Nuevo.Destreza = random.Next(2,4);
                 Nuevo.Nivel = random.Next(1,5);
                 Nuevo.Armadura = random.Next(1,3);
-                Nuevo.Salud = random.Next(30,55);
-                Nuevo.FecNac = start.AddDays(random.Next(range));
-                Nuevo.Edad =  Nuevo.FecNac.Year - start.Year;
-            }
+               
+             }
 
             if (Nuevo.Tipo == TipoPersonaje.Bestia)
             {
@@ -63,16 +79,24 @@ namespace EspacioFabricaDePersonajes
                 Nuevo.Destreza = random.Next(1,3);
                 Nuevo.Nivel = random.Next(1,5);
                 Nuevo.Armadura = random.Next(8,11);
-                Nuevo.Salud = random.Next(80,101);
-                Nuevo.FecNac = start.AddDays(random.Next(range));
-                Nuevo.Edad = start.Year - Nuevo.FecNac.Year;
+               
             }
 
             return Nuevo;
         }
 
-    }
+    
 
+        public static List<Personaje> CreacionPersonajes(List<Personaje> listaPersonajes, List<PersonajeDatos> personajeDatos)
+        {
+            foreach (var personaje in personajeDatos)
+            {
+                Personaje personajeNuevo = NuevoPersonaje(personaje);
+                listaPersonajes.Add(personajeNuevo);
+            }
+            return listaPersonajes;
+        }
+    }
     public class PersonajesJson
     {
         public void GuardarPersonajes(List<Personaje> Lista, string fileName)

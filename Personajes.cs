@@ -21,7 +21,7 @@ namespace EspacioPersonajes
         private TipoPersonaje tipo;
         private string nombre;
 
-        private string apodo;
+        private string genero;
 
         private DateTime fechaDeNacimiento;
 
@@ -34,7 +34,7 @@ namespace EspacioPersonajes
         public int Armadura { get => armadura; set => armadura = value; }
         public int Salud { get => salud; set => salud = value; }
         public string Nombre { get => nombre; set => nombre = value; }
-        public string Apodo { get => apodo; set => apodo = value; }
+        public string Genero { get => genero; set => genero = value; }
         public DateTime FecNac { get => fechaDeNacimiento; set => fechaDeNacimiento = value; }
         public int Edad { get => edad; set => edad = value; }
         public TipoPersonaje Tipo  { get => tipo; set => tipo = value; }

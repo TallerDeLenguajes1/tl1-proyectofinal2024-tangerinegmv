@@ -36,7 +36,7 @@ namespace EspacioApi
         public List<string> members { get; set; }
     }
 
-    public class Personajes
+    public class PersonajeDatos
     {
         [JsonPropertyName("id")]
         public int id { get; set; }
@@ -57,7 +57,7 @@ namespace EspacioApi
         public string gender { get; set; }
 
         [JsonPropertyName("age")]
-        public object age { get; set; }
+        public int age { get; set; }
 
         [JsonPropertyName("height")]
         public string height { get; set; }
@@ -93,45 +93,9 @@ namespace EspacioApi
         public Info info { get; set; }
 
         [JsonPropertyName("results")]
-        public List<Personajes> Items { get; set; }
+        public List<PersonajeDatos> Items { get; set; }
     }
 
-    public class ConsumoDeApi
-    {
-        public async Task<List<string>> TraerInfoAPI()
-        {
-            try
-            {
-                HttpClient cliente = new HttpClient();
-                var url = "https://api.attackontitanapi.com/characters";
-                HttpResponseMessage respuesta = await cliente.GetAsync(url);
-                respuesta.EnsureSuccessStatusCode();
-
-                string responseBody = await respuesta.Content.ReadAsStringAsync();
-                var contenidoApi = JsonSerializer.Deserialize<Root>(responseBody, new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
-                
-                //saco los nombres de los personajes de la api
-                List<string> nombres = new List<string>();
-                if (contenidoApi != null && contenidoApi.Items != null)
-                {
-                    foreach (var personaje in contenidoApi.Items)
-                {
-                    nombres.Add(personaje.name);
-                   
-                }
-                }
-                
-                
-                return nombres;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex}");
-                return null;
-            }
-        }
-    }
-
-
+    
 }
 

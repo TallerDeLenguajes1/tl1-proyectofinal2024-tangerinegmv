@@ -9,7 +9,6 @@ namespace EspacioJson
 {
     public class CargarDatos
     {
-        
         public static async Task CargarDatosApi()
         {
             await CargarDatosPersonajesAsync();
@@ -17,12 +16,13 @@ namespace EspacioJson
 
         private static async Task CargarDatosPersonajesAsync()
         {
+           
             List<PersonajeDatos> listaPersonajesApi = new List<PersonajeDatos>();
             List<Personaje> listaPersonajes = new List<Personaje>();
 
             listaPersonajesApi = await TraerInfoAPI(listaPersonajesApi);
             listaPersonajes = FabricaDePersonajes.CreacionPersonajes(listaPersonajes, listaPersonajesApi);
-            GuardarPersonajes(listaPersonajes, "Json/Personajes.json");
+            PersonajesJson.GuardarPersonajes(listaPersonajes, "Json/Personajes.json");
         }
 
         private static async Task<List<PersonajeDatos>> TraerInfoAPI(List<PersonajeDatos> listaPersonajes) 
@@ -56,15 +56,14 @@ namespace EspacioJson
             return listaPersonajes;
         }
 
-
-
-        private static void GuardarPersonajes(List<Personaje> Lista, string fileName)
+    }
+    public class PersonajesJson{
+        public static void GuardarPersonajes(List<Personaje> Lista, string fileName)
         {
             string json = JsonSerializer.Serialize(Lista);
             File.WriteAllText(fileName,json);
         }
-
-        public List<Personaje> LeerPersonajes(string fileName)
+        public static List<Personaje> LeerPersonajes(string fileName)
         {
             if (File.Exists(fileName))
             {
@@ -77,12 +76,17 @@ namespace EspacioJson
                 return null;
             }
         }
-
-        public bool Existe(string fileName)
+         public static bool Existe(string fileName)
         {
             return File.Exists(fileName);
         }
+    }
+        
 
+        
+
+       
+/* 
         public void mostrarPersonajes(List<Personaje> lista)
         {
             foreach (var personaje in lista)
@@ -91,7 +95,6 @@ namespace EspacioJson
                 System.Console.WriteLine("VEL.: " + personaje.Velocidad + " Destreza: " + personaje.Destreza + " Fuerza: " + personaje.Fuerza);
                 System.Console.WriteLine("Nivel: " + personaje.Nivel + " Armadura: " + personaje.Armadura + " Salud: " + personaje.Salud);
             }
-        }
+        } */
 
     }
-}

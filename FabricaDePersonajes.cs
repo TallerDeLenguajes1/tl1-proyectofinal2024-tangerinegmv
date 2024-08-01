@@ -2,8 +2,10 @@ using EspacioPersonajes;
 using EspacioApi;
 using System.Text.Json;
 using System.Net;
+using System.Linq;
 using Microsoft.VisualBasic;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 namespace EspacioFabricaDePersonajes
 {
    
@@ -22,27 +24,82 @@ namespace EspacioFabricaDePersonajes
         }
 
         //genera una fecha de nacimiento aleatoria
-        private static DateTime FechaNac(int edad)
+        private static DateTime FechaNac(object edad)
         {   
-            int currentYear = 724;
+            //int currentYear = 724;
             Random random = new Random();
-            int birthYear = currentYear - edad;
-            DateTime start = new DateTime(birthYear, 1, 1);
-            DateTime end = new DateTime(birthYear, 12, 31);
+            DateTime start = new DateTime(700, 1, 1);
+            DateTime end = new DateTime(705, 12, 31);
             int range = (end - start).Days;
             DateTime FecNac = start.AddDays(random.Next(range + 1));
             return FecNac;
         }
+
+        private static string Genero(string genero)
+        {
+            if (genero == "Male")
+            {
+                return "Hombre";
+            }else
+            {
+                return "Mujer";
+            }
+        }
+
+        private static int Edad(object edad)
+        {
+            Random random = new Random();
+
+            if (edad is int edadInt)
+            {
+                return edadInt;
+            }
+            else if (edad is string edadStr)
+            {
+                if (edadStr.ToLower() == "unknown")
+                {
+                    return random.Next(19, 36);
+                }
+                else if (int.TryParse(edadStr, out int edadParseada))
+                {
+                    return edadParseada;
+                }
+            }
+            else if (edad is JsonElement jsonElement)
+            {
+                if (jsonElement.ValueKind == JsonValueKind.String && jsonElement.GetString().ToLower() == "unknown")
+                {
+                    return random.Next(19, 36);
+                }
+                else if (jsonElement.ValueKind == JsonValueKind.Number && jsonElement.TryGetInt32(out int edadJson))
+                {
+                    return edadJson;
+                }
+                else if (jsonElement.ValueKind == JsonValueKind.String && int.TryParse(jsonElement.GetString(), out int edadParseada))
+                {
+                    return edadParseada;
+                }
+            }
+
+            // Si no se puede determinar la edad, devolver un número aleatorio
+            return random.Next(19, 36);
+        }
+
+
         private static Personaje NuevoPersonaje(PersonajeDatos personaje)
         {
             Random random = new Random();
-            var Nuevo = new Personaje();
-            Nuevo.Nombre = personaje.name;
-            Nuevo.Tipo = DecideTipo<TipoPersonaje>();
-            Nuevo.Edad = personaje.age;
-            Nuevo.FecNac = FechaNac(Nuevo.Edad);
-            Nuevo.Genero = personaje.gender;
-            Nuevo.Salud = 100;
+            int edad = Edad(personaje.age);
+
+            var Nuevo = new Personaje
+            {
+                Nombre = personaje.name,
+                Tipo = DecideTipo<TipoPersonaje>(),
+                Edad = edad,
+                FecNac = FechaNac(edad),
+                Genero = Genero(personaje.gender),
+                Salud = 100
+            };
             if (Nuevo.Tipo == TipoPersonaje.Colosal)
             {
                 Nuevo.Fuerza=random.Next(9,11);
@@ -88,53 +145,32 @@ namespace EspacioFabricaDePersonajes
     
 
         public static List<Personaje> CreacionPersonajes(List<Personaje> listaPersonajes, List<PersonajeDatos> personajeDatos)
-        {
-            foreach (var personaje in personajeDatos)
+        {   
+
+            Random random = new Random();
+            List<PersonajeDatos> DiezPersonajesAleatorios = personajeDatos.OrderBy(x => random.Next()).Take(10).ToList();
+            foreach (var personaje in DiezPersonajesAleatorios)
             {
                 Personaje personajeNuevo = NuevoPersonaje(personaje);
                 listaPersonajes.Add(personajeNuevo);
             }
             return listaPersonajes;
-        }
-    }
-    public class PersonajesJson
-    {
-        public void GuardarPersonajes(List<Personaje> Lista, string fileName)
+        } 
+        public static void mostrarPersonajes(List<Personaje> lista)
         {
-            string json = JsonSerializer.Serialize(Lista);
-            File.WriteAllText(fileName,json);
-        }
-
-        public List<Personaje> LeerPersonajes(string fileName)
-        {
-            if (File.Exists(fileName))
-            {
-                String jsonString = File.ReadAllText(fileName);
-                List<Personaje> personajesDeserializados = JsonSerializer.Deserialize<List<Personaje>>(jsonString);
-                return personajesDeserializados;
-            }else
-            {
-                System.Console.WriteLine("El archivo de nombre: " + fileName + " no existe");
-                return null;
-            }
-        }
-
-        public bool Existe(string fileName)
-        {
-            return File.Exists(fileName);
-        }
-
-        public void mostrarPersonajes(List<Personaje> lista)
-        {
+            int i=0;
             foreach (var personaje in lista)
             {
-                System.Console.WriteLine("Jugador de nombre: " + personaje.Nombre + ", Apodo: " + personaje.Apodo +", Edad: "+ personaje.Edad );
+                System.Console.WriteLine(i+ "Jugador de nombre: " + personaje.Nombre + ", Genero: " + personaje.Genero +", Edad: "+ personaje.Edad );
                 System.Console.WriteLine("VEL.: " + personaje.Velocidad + " Destreza: " + personaje.Destreza + " Fuerza: " + personaje.Fuerza);
                 System.Console.WriteLine("Nivel: " + personaje.Nivel + " Armadura: " + personaje.Armadura + " Salud: " + personaje.Salud);
+                i++;
             }
         }
-
     }
+       
+
+    
 
     
 }

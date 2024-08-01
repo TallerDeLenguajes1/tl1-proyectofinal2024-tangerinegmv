@@ -57,7 +57,7 @@ namespace EspacioApi
         public string gender { get; set; }
 
         [JsonPropertyName("age")]
-        public int age { get; set; }
+        public object age { get; set; }
 
         [JsonPropertyName("height")]
         public string height { get; set; }

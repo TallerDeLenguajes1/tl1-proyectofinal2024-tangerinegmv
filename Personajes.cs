@@ -25,7 +25,7 @@ namespace EspacioPersonajes
 
         private DateTime fechaDeNacimiento;
 
-        private int edad;
+        private object edad;
 
         public int Velocidad {get => velocidad; set => velocidad = value;}
         public int Destreza { get => destreza; set => destreza = value; }
@@ -36,7 +36,7 @@ namespace EspacioPersonajes
         public string Nombre { get => nombre; set => nombre = value; }
         public string Genero { get => genero; set => genero = value; }
         public DateTime FecNac { get => fechaDeNacimiento; set => fechaDeNacimiento = value; }
-        public int Edad { get => edad; set => edad = value; }
+        public object Edad { get => edad; set => edad = value; }
         public TipoPersonaje Tipo  { get => tipo; set => tipo = value; }
     }  
     

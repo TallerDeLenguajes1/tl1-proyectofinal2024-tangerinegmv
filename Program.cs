@@ -1,3 +1,16 @@
-﻿using Pelea;
+﻿using MenuPrincipal;
+using MensajesPorPantalla;
 
-await Pelea.Pelea.SeleccionDePersonaje();
+namespace BatallaDeTitanes
+{
+    public static class Programa
+    {
+       public static async Task Main(string[] args)
+       {
+            Mensajes.MostrarIntroduccion();
+            await MenuPrincipal.MenuPrincipal.MostrarMenu();
+            
+       }
+       }
+}
+

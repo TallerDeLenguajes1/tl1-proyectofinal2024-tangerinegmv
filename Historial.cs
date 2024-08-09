@@ -1,7 +1,7 @@
 using EspacioPersonajes;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
-namespace Historial
+namespace EspacioHistorial
 {
     public class HistorialJson
     {

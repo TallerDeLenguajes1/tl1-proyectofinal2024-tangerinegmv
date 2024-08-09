@@ -1,4 +1,4 @@
-﻿using MenuPrincipal;
+﻿using EspacioMenuPrincipal;
 using MensajesPorPantalla;
 
 namespace BatallaDeTitanes
@@ -8,7 +8,7 @@ namespace BatallaDeTitanes
        public static async Task Main(string[] args)
        {
             Mensajes.MostrarIntroduccion();
-            await MenuPrincipal.MenuPrincipal.MostrarMenu();
+            await MenuPrincipal.MostrarMenu();
             
        }
        }

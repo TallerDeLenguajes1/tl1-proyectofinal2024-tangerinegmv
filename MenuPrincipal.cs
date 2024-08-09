@@ -2,12 +2,12 @@ using System;
 using MensajesPorPantalla;
 using EspacioJson;
 using EspacioPersonajes;
-using Historial;
-using SeleccionDePersonaje;
+using EspacioHistorial;
+using EspacioSeleccionDePersonaje;
 
-namespace MenuPrincipal
+namespace EspacioMenuPrincipal
 {
-    public static class MenuPrincipal
+    public class MenuPrincipal
     {
         public static async Task MostrarMenu()
         {
@@ -59,7 +59,8 @@ namespace MenuPrincipal
             }
 
 
-            SeleccionDePersonaje.SeleccionDePersonaje.SelectorDePersonaje(listaPersonajes);
+            await SeleccionDePersonaje.SelectorDePersonajeAsync(listaPersonajes);
+            await Task.Delay(1000);
         }
 
         private static void VerHistorial()

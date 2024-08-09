@@ -2,16 +2,17 @@
 using MensajesPorPantalla;
 using EspacioPersonajes;
 using EspacioPelea;
+using EspacioHistorial;
 
-namespace SeleccionDePersonaje
+namespace EspacioSeleccionDePersonaje
 {
     public class SeleccionDePersonaje
     {
       
-        public static void SelectorDePersonaje(List<Personaje> listaPersonajes)
+        public static async Task SelectorDePersonajeAsync(List<Personaje> listaPersonajes)
         {
             Console.WriteLine("----------------------- ");
-            Console.WriteLine("Seleccione el Personaje con el que jugará (ID): ");
+            Console.WriteLine("Seleccione el Personaje 1 con el que jugará (ID): ");
             Mensajes.mostrarPersonajes(listaPersonajes);
 
             int elegido;
@@ -19,10 +20,14 @@ namespace SeleccionDePersonaje
             bool control = int.TryParse(Eleccion, out elegido);
             if (control)
             {
-                var Protagonista = listaPersonajes[elegido];
-                listaPersonajes.Remove(Protagonista);
+                var PersonajeElegido = listaPersonajes[elegido];
+                listaPersonajes.Remove(PersonajeElegido);
 
-                Pelea.Combate(listaPersonajes, Protagonista);
+                await Pelea.InicioCombate(listaPersonajes,PersonajeElegido);
+                
+                
+
+
             }
         }
     }

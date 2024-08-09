@@ -1,7 +1,7 @@
-using Historial;
+using EspacioHistorial;
 using EspacioPersonajes;
 using MensajesPorPantalla;
-
+using FinJuego;
 
 namespace EspacioPelea
 {
@@ -9,48 +9,55 @@ namespace EspacioPelea
     {
         public static Random random = new Random();
 
-        public static void Combate(List<Personaje> listaPersonajes, Personaje Protagonista)
+        public static async Task InicioCombate(List<Personaje> listaPersonajes, Personaje PersonajeElegido)
         {
-            int ronda = 0;
+            Console.Clear();
             
+            int ronda = 0;
+            var Ganador = new Personaje();
+            Mensajes.MostrarMensaje("COMIENZA LA BATALLA");
+
+            await Task.Delay(1000);
+
+            Ganador = Combate(listaPersonajes, PersonajeElegido, ronda, Ganador);
+            
+            Mensajes.MostrarMensaje("FIN DEL TORNEO");
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+            await FinalDeJuego.Final(Ganador);
+            
+
+            
+        }
+
+        private static Personaje Combate(List<Personaje> listaPersonajes, Personaje PersonajeElegido, int ronda, Personaje Ganador)
+        {
             while (listaPersonajes.Count > 0)
             {
-                Mensajes.MostrarMensajeRonda(ronda+1);
+                PersonajeElegido.Salud = 100;
                 if (ronda == 9) break;
+                 Mensajes.MostrarMensajeRonda(ronda+1);  
 
-                Console.WriteLine($"\nEres {Protagonista.Nombre} (Titán {Protagonista.Tipo})");
                 int IndiceContrincante = random.Next(0, listaPersonajes.Count);
                 var Contrincante = listaPersonajes[IndiceContrincante];
+                listaPersonajes.Remove(Contrincante);
 
-                Console.WriteLine($"Peleas contra {Contrincante.Nombre} (Titán {Contrincante.Tipo})\n");
+                Console.WriteLine($"{PersonajeElegido.Nombre} (Titán {PersonajeElegido.Tipo}) contra {Contrincante.Nombre} (Titán {Contrincante.Tipo})\n");
 
-                var ganador = DinamicaDePelea(Protagonista, Contrincante);
+                Ganador = DinamicaDePelea(PersonajeElegido, Contrincante);
 
-                if (ganador == Protagonista)
-                {
-                    listaPersonajes.Remove(Contrincante);
-                    MejorarEstadisticas(ganador);
-                    Console.WriteLine($"\n¡Has vencido a {Contrincante.Nombre}! Tus estadísticas han mejorado.");
-                }
-                else
-                {
-                    listaPersonajes.Remove(Protagonista);
-                    MejorarEstadisticas(ganador);
-                    Console.WriteLine($"\nHas sido derrotado por {Contrincante.Nombre}. ¡Mejoran sus estadísticas!");
-                    Protagonista = Contrincante; // Cambia el protagonista si pierde
-                }
-
+                Console.WriteLine(Ganador.Nombre + " es el ganador de esta ronda!");
+                MejorarEstadisticas(Ganador);
+                PersonajeElegido = Ganador;
+               
+                Console.WriteLine("Presione una tecla para jugar la siguiente ronda...");
+                Console.ReadKey();
                 ronda++;
             }
 
-                Console.WriteLine($"\n{Protagonista.Nombre} ha ganado el torneo y se convierte en el Titán Primordial. ¡Felicidades!");
-                Console.WriteLine("Sus estadísticas finales son:");
-                Mensajes.MostrarPersonaje(Protagonista);
-
-                // Añadir al historial de ganadores
-                var historial = HistorialJson.LeerGanadores();
-                HistorialJson.CargarDatos(Protagonista, historial);
-            }
+            return Ganador;
+        }
     
 
         private static Personaje DinamicaDePelea(Personaje prota, Personaje contrincante)
@@ -64,7 +71,7 @@ namespace EspacioPelea
                 {
                     if (primeraVuelta)
                     {
-                        Console.WriteLine("Comienza atacando " + prota.Nombre);
+                        Mensajes.MostrarMensaje($"COMIENZA ATACANDO: {prota.Nombre}");
                     }
                     Ataque(prota, contrincante);
                     turno = 0;
@@ -73,7 +80,7 @@ namespace EspacioPelea
                 {
                     if (primeraVuelta)
                     {
-                        Console.WriteLine("Comienza atacando " + contrincante.Nombre);
+                        Mensajes.MostrarMensaje($"COMIENZA ATACANDO: {contrincante.Nombre}");
                     }
                     Ataque(contrincante, prota);
                     turno = 1;
@@ -92,7 +99,9 @@ namespace EspacioPelea
             {
                 defiende.Salud = 0;
             }
-            Console.WriteLine($"\nEl Titán {ataca.Tipo} ({ataca.Nombre}) ataca al Titán {defiende.Tipo} ({defiende.Nombre}) y causa {daño} puntos de daño. Salud restante de {defiende.Nombre}: {defiende.Salud}");
+            Console.WriteLine($"\nEl Titán {ataca.Tipo} ({ataca.Nombre}) ataca al Titán {defiende.Tipo} ({defiende.Nombre}) y causa {daño} puntos de daño. ");
+            Console.WriteLine($"Salud restante de {defiende.Nombre}: {defiende.Salud}");
+            Console.WriteLine("--------------------------------------------------------------------------");
         }
 
         private static int Daño(Personaje personaje)
@@ -100,18 +109,31 @@ namespace EspacioPelea
             double Ataque = (personaje.Destreza) * (personaje.Fuerza) * (personaje.Nivel);
             double Efectividad = random.Next(1, 101);
             double Defensa = (personaje.Armadura) * (personaje.Velocidad);
-            double CteDeAjuste = 500;
+            double CteDeAjuste = 50.0;
             double dañoProvocado = ((Ataque * Efectividad) - Defensa) / CteDeAjuste;
+            if (dañoProvocado>100)
+            {
+                dañoProvocado =100;
+            }
+            if (dañoProvocado<0)
+            {
+                dañoProvocado=0;
+            }
             return (int)dañoProvocado;
         }
 
         private static void MejorarEstadisticas(Personaje personaje)
         {
-            personaje.Salud += 10;
-            personaje.Armadura += 5;
-            personaje.Fuerza += 3;
-            personaje.Velocidad += 2;
-            personaje.Nivel += 1;
+            if (personaje.Armadura <=5)
+            {
+                personaje.Armadura += 5;
+            }else
+            {
+                personaje.Armadura = 10;
+            }
+            
+
+            Console.WriteLine(personaje.Nombre + " ha mejorado sus estadísticas tras la victoria!");
         }
     }
 } 

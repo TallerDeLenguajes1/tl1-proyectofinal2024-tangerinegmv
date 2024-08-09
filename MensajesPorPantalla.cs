@@ -2,7 +2,7 @@ using EspacioPersonajes;
 using EspacioApi;
 using EspacioFabricaDePersonajes;
 using EspacioJson;
-using Historial;
+using EspacioHistorial;
 using System;
 namespace MensajesPorPantalla
 {
@@ -89,7 +89,7 @@ namespace MensajesPorPantalla
 
         Console.WriteLine("==========================================================================================================");
     
-            throw new NotImplementedException();
+          
 
         }
 
@@ -109,6 +109,13 @@ namespace MensajesPorPantalla
         {
             Console.WriteLine("==========================================================================================");
             Console.WriteLine($"                           Ronda {ronda}");
+            Console.WriteLine("==========================================================================================");
+        }
+
+        public static void MostrarMensaje(string mensaje)
+        {
+            Console.WriteLine("==========================================================================================");
+            Console.WriteLine($"                {mensaje}");
             Console.WriteLine("==========================================================================================");
         }
     }

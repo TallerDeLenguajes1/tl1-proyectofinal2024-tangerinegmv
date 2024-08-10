@@ -60,7 +60,12 @@ namespace EspacioJson
     public class PersonajesJson{
         public static void GuardarPersonajes(List<Personaje> Lista, string fileName)
         {
-            string json = JsonSerializer.Serialize(Lista);
+            var options = new JsonSerializerOptions
+            {
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(Lista, options);
             File.WriteAllText(fileName,json);
         }
         public static List<Personaje> LeerPersonajes(string fileName)

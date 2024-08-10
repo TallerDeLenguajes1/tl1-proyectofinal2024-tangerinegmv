@@ -1,6 +1,7 @@
 using EspacioHistorial;
 using EspacioPersonajes;
 using MensajesPorPantalla;
+using EspacioAsciiArt;
 using FinJuego;
 
 namespace EspacioPelea
@@ -15,13 +16,13 @@ namespace EspacioPelea
             
             int ronda = 0;
             var Ganador = new Personaje();
-            Mensajes.MostrarMensaje("COMIENZA LA BATALLA");
+            AsciiArt.MsjeComienzo();
 
             await Task.Delay(1000);
 
             Ganador = Combate(listaPersonajes, PersonajeElegido, ronda, Ganador);
             
-            Mensajes.MostrarMensaje("FIN DEL TORNEO");
+            AsciiArt.MsjeFin();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadKey();
             Console.Clear();

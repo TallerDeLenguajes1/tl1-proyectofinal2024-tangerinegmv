@@ -33,6 +33,7 @@ namespace EspacioMenuPrincipal
                         return;
                     default:
                         Console.WriteLine("Opción no válida. Inténtelo de nuevo.");
+                        await Task.Delay(3000);
                         break;
                     
                 }
@@ -65,6 +66,7 @@ namespace EspacioMenuPrincipal
 
         private static void VerHistorial()
         {
+            Console.Clear();
             List<HistorialJson> historial = HistorialJson.LeerGanadores();
             if (historial.Count > 0)
             {
@@ -72,7 +74,7 @@ namespace EspacioMenuPrincipal
             }
             else
             {
-                Console.WriteLine("No hay historial de ganadores.");
+                Mensajes.MostrarMensaje("No hay historial de ganadores aun. \nComienza un nuevo juego para empezar a agregar a los ganadores del torneo!");
             }
             Console.WriteLine("Presione una tecla para volver al menú principal...");
             Console.ReadKey();

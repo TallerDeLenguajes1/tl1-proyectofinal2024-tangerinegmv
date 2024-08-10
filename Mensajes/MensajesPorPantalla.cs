@@ -3,7 +3,7 @@ using EspacioApi;
 using EspacioFabricaDePersonajes;
 using EspacioJson;
 using EspacioHistorial;
-using System;
+using EspacioAsciiArt;
 namespace MensajesPorPantalla
 {
     public static class Mensajes
@@ -11,15 +11,9 @@ namespace MensajesPorPantalla
         public static void MostrarIntroduccion()
         {
             Console.Clear();
-            Console.WriteLine("==========================================================================================");
-            Console.WriteLine("                            __        __   _       _          _  ");
-            Console.WriteLine("                            \\ \\      / /  | |     | |        | | ");
-            Console.WriteLine("                             \\ \\_/ /__ | |_   _ | |  ___  | |_ ");
-            Console.WriteLine("                              \\   / _ \\| | | | || | / _ \\ | __|");
-            Console.WriteLine("                               | |  __/| | |_| || || (_) || |_ ");
-            Console.WriteLine("                               |_|\\___/ |_|\\__,_||_| \\___/  \\__|");
-            Console.WriteLine();
-            Console.WriteLine("==========================================================================================");
+            Console.WriteLine("========================================================================================================================");
+            AsciiArt.Titulo();
+            Console.WriteLine("========================================================================================================================");
             Console.WriteLine();
             Console.WriteLine("En las profundidades de la Isla Paradis, un antiguo secreto se esconde entre las sombras.");
             Console.WriteLine("Cada ser nacido en esta tierra posee un poder aterrador: el poder de un Titán.");
@@ -35,9 +29,9 @@ namespace MensajesPorPantalla
         public static void mostrarPersonajes(List<Personaje> lista)
         {
             // Imprimir encabezados
-            Console.WriteLine("===================================================================================================================================");
+            Console.WriteLine("================================================================================================================================");
             Console.WriteLine("ID |      Nombre             | Genero  | Edad | Titán        | Velocidad | Destreza | Fuerza | Nivel | Armadura | Salud ");
-            Console.WriteLine("===================================================================================================================================");
+            Console.WriteLine("================================================================================================================================");
 
             int id = 0;
             foreach (var personaje in lista)
@@ -47,7 +41,7 @@ namespace MensajesPorPantalla
                 id++;
             }
 
-            Console.WriteLine("===================================================================================================================================");
+            Console.WriteLine("================================================================================================================================");
         }
 
 
@@ -64,7 +58,7 @@ namespace MensajesPorPantalla
             Console.WriteLine("========================================================");
             Console.WriteLine("           Historial de Ganadores                       ");
             Console.WriteLine("========================================================");
-            Console.WriteLine("Nombre del Ganador         | Fecha y Hora               ");
+            Console.WriteLine("Nombre del Ganador          | Fecha y Hora               ");
             Console.WriteLine("--------------------------------------------------------");
 
             foreach (var registro in listaHistorial)
@@ -79,19 +73,36 @@ namespace MensajesPorPantalla
 
         internal static void MostrarPersonaje(Personaje personaje)
         {
-            // Imprimir encabezados
-        Console.WriteLine("==========================================================================================================");
-        Console.WriteLine("Nombre          | Genero  | Edad | Velocidad | Destreza | Fuerza | Nivel | Armadura | Salud | Tipo");
-        Console.WriteLine("==========================================================================================================");
+           
+            Console.WriteLine("======================================================");
+            Console.WriteLine("Datos del Personaje");
+            Console.WriteLine("======================================================");
+            Console.WriteLine($"Nombre:      {personaje.Nombre}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Género:      {personaje.Genero}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Edad:        {personaje.Edad}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Velocidad:   {personaje.Velocidad}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Destreza:    {personaje.Destreza}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Fuerza:      {personaje.Fuerza}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Nivel:       {personaje.Nivel}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Armadura:    {personaje.Armadura}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Salud:       {personaje.Salud}");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Tipo:        {personaje.Tipo}");
+            Console.WriteLine("======================================================");
+        }
 
-        // Imprimir el personaje con formato
-        Console.WriteLine($"{personaje.Nombre,-15} | {personaje.Genero,-7} | {personaje.Edad,-4} | {personaje.Velocidad,-9} | {personaje.Destreza,-8} | {personaje.Fuerza,-6} | {personaje.Nivel,-5} | {personaje.Armadura,-8} | {personaje.Salud,-5} | {personaje.Tipo,-4}");
-
-        Console.WriteLine("==========================================================================================================");
     
           
 
-        }
+       
 
         public static void MostrarMenuPrincipal()
         {
@@ -118,6 +129,8 @@ namespace MensajesPorPantalla
             Console.WriteLine($"                {mensaje}");
             Console.WriteLine("==========================================================================================");
         }
+        
     }
+    
 
   }

@@ -2,6 +2,7 @@ using EspacioPersonajes;
 using EspacioApi;
 using EspacioFabricaDePersonajes;
 using System.Text.Json;
+using Microsoft.VisualBasic;
 
 namespace EspacioJson
 {
@@ -88,19 +89,37 @@ namespace EspacioJson
         {
             if (Existe(fileName))
             {
+
+                ConsoleKeyInfo tecla;
+                char answer;
+                bool control;
+
                 Console.WriteLine("Existe una lista de personajes precargada, quieres usarla?(S/N)");
-                string answer = Console.ReadLine();
-                if (answer == "N" || answer =="n")
+
+                do
                 {
-                    Console.WriteLine("Se borrará la lista y se creará una nueva.");
-                    File.Delete(fileName);
-                    Console.WriteLine("Creando nuevos personajes...");
-                    await CargarDatos.CargandoPersonajes();
-                }else
-                {
-                    Console.WriteLine("Se usará la lista de personajes precargada.");
-                    await Task.Delay(3000);
-                }
+                    tecla = Console.ReadKey(intercept: true);
+                    answer = tecla.KeyChar;
+                    control = true;
+
+                    if (answer == 'N' || answer == 'n')
+                    {
+                        Console.WriteLine("Se borrará la lista y se creará una nueva.");
+                        File.Delete(fileName);
+                        Console.WriteLine("Creando nuevos personajes...");
+                        await CargarDatos.CargandoPersonajes();
+                    }else if (answer == 's' || answer == 'S')
+                    {
+                        Console.WriteLine("Se usará la lista de personajes precargada.");
+                        await Task.Delay(3000);
+                    }else
+                    {
+                        Console.WriteLine("Ingrese S o N");
+                        control = false;
+                    }
+                } while (!control);
+                
+               
             }
         }
     }

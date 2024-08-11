@@ -62,5 +62,85 @@
       "Tipo": 0
     },
     "Hora": "0724-08-11T17:58:45"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 4,
+      "Destreza": 2,
+      "Fuerza": 6,
+      "Nivel": 5,
+      "Armadura": 3,
+      "Salud": 14,
+      "Nombre": "Gordon",
+      "Genero": "Hombre",
+      "FecNac": "0702-08-25T00:00:00",
+      "Edad": 20,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T18:22:23"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 7,
+      "Destreza": 4,
+      "Fuerza": 12,
+      "Nivel": 5,
+      "Armadura": 10,
+      "Salud": 68,
+      "Nombre": "Sandra",
+      "Genero": "Mujer",
+      "FecNac": "0704-02-03T00:00:00",
+      "Edad": 28,
+      "Tipo": 2
+    },
+    "Hora": "0724-08-11T18:23:11"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 7,
+      "Destreza": 4,
+      "Fuerza": 17,
+      "Nivel": 5,
+      "Armadura": 10,
+      "Salud": 99,
+      "Nombre": "Sandra",
+      "Genero": "Mujer",
+      "FecNac": "0704-02-03T00:00:00",
+      "Edad": 28,
+      "Tipo": 2
+    },
+    "Hora": "0724-08-11T18:23:50"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 4,
+      "Fuerza": 7,
+      "Nivel": 5,
+      "Armadura": 7,
+      "Salud": 10,
+      "Nombre": "Klaus",
+      "Genero": "Hombre",
+      "FecNac": "0705-07-03T00:00:00",
+      "Edad": 23,
+      "Tipo": 1
+    },
+    "Hora": "0724-08-11T18:25:12"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 4,
+      "Destreza": 2,
+      "Fuerza": 7,
+      "Nivel": 5,
+      "Armadura": 4,
+      "Salud": 66,
+      "Nombre": "Hange Zoë",
+      "Genero": "Mujer",
+      "FecNac": "0703-06-26T00:00:00",
+      "Edad": 35,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T18:26:41"
   }
 ]

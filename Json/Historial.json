@@ -14,5 +14,37 @@
       "Tipo": 0
     },
     "Hora": "0724-08-10T19:10:21"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 4,
+      "Fuerza": 10,
+      "Nivel": 4,
+      "Armadura": 10,
+      "Salud": 100,
+      "Nombre": "Dieter",
+      "Genero": "Hombre",
+      "FecNac": "0701-08-18T00:00:00",
+      "Edad": 30,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-10T20:30:53"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 7,
+      "Destreza": 3,
+      "Fuerza": 10,
+      "Nivel": 3,
+      "Armadura": 10,
+      "Salud": 28,
+      "Nombre": "Tomas",
+      "Genero": "Hombre",
+      "FecNac": "0700-05-22T00:00:00",
+      "Edad": 32,
+      "Tipo": 3
+    },
+    "Hora": "0724-08-10T20:32:10"
   }
 ]

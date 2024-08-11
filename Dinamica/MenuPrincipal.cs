@@ -50,6 +50,9 @@ namespace EspacioMenuPrincipal
                 {
                     Console.WriteLine("El archivo de personajes está vacío. Creando nuevos personajes...");
                     await CargarDatos.CargandoPersonajes();
+                }else
+                {
+                    await PersonajesJson.RecargaDePersonajes(archivoPersonajes);
                 }
                
             }else

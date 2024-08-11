@@ -2,9 +2,7 @@ using EspacioPersonajes;
 using EspacioApi;
 using EspacioFabricaDePersonajes;
 using System.Text.Json;
-using System.Net;
-using Microsoft.VisualBasic;
-using System.Runtime.CompilerServices;
+
 namespace EspacioJson
 {
     public class CargarDatos
@@ -84,6 +82,26 @@ namespace EspacioJson
          public static bool Existe(string fileName)
         {
             return File.Exists(fileName);
+        }
+
+        public static async Task RecargaDePersonajes(string fileName)
+        {
+            if (Existe(fileName))
+            {
+                Console.WriteLine("Existe una lista de personajes precargada, quieres usarla?(S/N)");
+                string answer = Console.ReadLine();
+                if (answer == "N" || answer =="n")
+                {
+                    Console.WriteLine("Se borrará la lista y se creará una nueva.");
+                    File.Delete(fileName);
+                    Console.WriteLine("Creando nuevos personajes...");
+                    await CargarDatos.CargandoPersonajes();
+                }else
+                {
+                    Console.WriteLine("Se usará la lista de personajes precargada.");
+                    await Task.Delay(3000);
+                }
+            }
         }
     }
         

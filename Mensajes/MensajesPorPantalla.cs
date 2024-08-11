@@ -58,7 +58,7 @@ namespace MensajesPorPantalla
             Console.WriteLine("========================================================");
             Console.WriteLine("           Historial de Ganadores                       ");
             Console.WriteLine("========================================================");
-            Console.WriteLine("Nombre del Ganador          | Fecha y Hora               ");
+            Console.WriteLine("Nombre del Ganador        | Fecha y Hora               ");
             Console.WriteLine("--------------------------------------------------------");
 
             foreach (var registro in listaHistorial)
@@ -75,10 +75,8 @@ namespace MensajesPorPantalla
         {
            
             Console.WriteLine("======================================================");
-            Console.WriteLine("Datos del Personaje");
+            Console.WriteLine($"        {personaje.Nombre}");
             Console.WriteLine("======================================================");
-            Console.WriteLine($"Nombre:      {personaje.Nombre}");
-            Console.WriteLine("----------------------------------------");
             Console.WriteLine($"Género:      {personaje.Genero}");
             Console.WriteLine("----------------------------------------");
             Console.WriteLine($"Edad:        {personaje.Edad}");
@@ -99,7 +97,31 @@ namespace MensajesPorPantalla
             Console.WriteLine("======================================================");
         }
 
-    
+        public static void MostrarMensajeGanador(Personaje ganador)
+        {
+            Console.Clear();
+            Console.WriteLine("============================================================");
+            Console.WriteLine("                      ¡VICTORIA ÉPICA!                      ");
+            Console.WriteLine("============================================================");
+            Console.WriteLine($" ¡{ganador.Nombre.ToUpper()} ha ganado el torneo y se convierte en el TITAN PRIMORDIAL. ¡Felicidades!");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine(" Después de una gran batalla, donde la fuerza, la destreza,");
+            Console.WriteLine(" y el coraje fueron puestos a prueba, un verdadero campeón");
+            Console.WriteLine(" ha emergido de entre los titanes. Con cada golpe, con cada");
+            Console.WriteLine(" movimiento, ha demostrado que solo los más fuertes prevalecen.");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine(" Las tierras temblaron, los cielos se abrieron, y los titanes");
+            Console.WriteLine(" han sido testigos del poder inigualable de un verdadero guerrero.");
+            Console.WriteLine($" ¡El nombre de {ganador.Nombre} resonará por la eternidad!");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("    Que la leyenda de este día sea contada en canciones,    ");
+            Console.WriteLine("    y que los futuros guerreros se arrodillen ante la grandeza.    ");
+            Console.WriteLine("============================================================");
+            Console.WriteLine();
+            // Console.WriteLine(" Presiona cualquier tecla para cerrar...");
+            // Console.ReadKey();
+        }
+
           
 
        

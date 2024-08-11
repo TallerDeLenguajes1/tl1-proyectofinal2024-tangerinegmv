@@ -12,7 +12,7 @@ namespace FinJuego
         {
             await Task.Delay(500);
 
-            Console.WriteLine($"\n{Ganador.Nombre} ha ganado el torneo y se convierte en el TITAN PRIMORDIAL. ¡Felicidades!");
+            Mensajes.MostrarMensajeGanador(Ganador);
             Console.WriteLine("Sus estadísticas finales son:");
             Mensajes.MostrarPersonaje(Ganador);
             // Añadir al historial de ganadores

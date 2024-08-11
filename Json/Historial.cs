@@ -17,7 +17,13 @@ namespace EspacioHistorial
             DateTime fechaAjustada = new DateTime(724, horaActual.Month, horaActual.Day, 
                                                     horaActual.Hour, horaActual.Minute, horaActual.Second);
             HistorialJson datos = new HistorialJson(ganador, fechaAjustada);
+            
             listaHistorial.Add(datos);
+             // Guardo solo los 15 ultimos
+            if (listaHistorial.Count > 15)
+            {
+                listaHistorial.RemoveAt(0);
+            }
             GuardarGanador(listaHistorial);
         }
         private static void GuardarGanador(List<HistorialJson> listaHistorial)

@@ -33,7 +33,7 @@ namespace EspacioMenuPrincipal
                         return;
                     default:
                         Console.WriteLine("Opción no válida. Inténtelo de nuevo.");
-                        await Task.Delay(3000);
+                        await Task.Delay(2000);
                         break;
                     
                 }

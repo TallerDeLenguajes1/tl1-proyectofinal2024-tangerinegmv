@@ -29,7 +29,7 @@ namespace EspacioSeleccionDePersonaje
             }else
             {
                 Console.WriteLine("Entrada no válida. Por favor ingrese un número entre 0 y 9.");
-                await Task.Delay(6000);
+                await Task.Delay(4000);
                 await SelectorDePersonajeAsync(listaPersonajes);
             }
         }

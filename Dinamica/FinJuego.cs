@@ -13,19 +13,22 @@ namespace FinJuego
             await Task.Delay(500);
 
             Mensajes.MostrarMensajeGanador(Ganador);
+            await Task.Delay(500);
             Console.WriteLine("Sus estadísticas finales son:");
             Mensajes.MostrarPersonaje(Ganador);
             // Añadir al historial de ganadores
             var Historial = HistorialJson.LeerGanadores();
             HistorialJson.CargarDatos(Ganador, Historial);
             Historial = HistorialJson.LeerGanadores();
+            
             Console.WriteLine("Presione una tecla para ver el Historial de Ganadores...");
-            Console.ReadKey();
+            Console.ReadKey(intercept: true);
             Mensajes.MostrarHistorial(Historial);
             Console.WriteLine("Presione una tecla para volver al Menu Principal...");
-            Console.ReadKey();
+            Console.ReadKey(intercept: true);
            
 
         }
+        
     }
 }

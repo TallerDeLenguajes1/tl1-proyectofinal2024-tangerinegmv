@@ -3,15 +3,23 @@ using MensajesPorPantalla;
 using EspacioPersonajes;
 using EspacioPelea;
 using EspacioHistorial;
+using EspacioAyuda;
 
 namespace EspacioSeleccionDePersonaje
 {
     public class SeleccionDePersonaje
     {
-      
-        public static async Task SelectorDePersonajeAsync(List<Personaje> listaPersonajes)
+        public static async Task SelectorDePersonajes(List<Personaje> listaPersonajes)
         {
             Console.Clear();
+            Ayuda.IntroduccionJuego();
+            await SelectorDePersonajeAsync(listaPersonajes);
+
+        }
+      
+        private static async Task SelectorDePersonajeAsync(List<Personaje> listaPersonajes)
+        {
+            
             Console.WriteLine("Seleccione el Personaje con el que jugará (ID): ");
             Mensajes.mostrarPersonajes(listaPersonajes);
 

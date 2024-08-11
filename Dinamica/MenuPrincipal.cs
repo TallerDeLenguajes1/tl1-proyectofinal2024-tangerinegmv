@@ -60,7 +60,7 @@ namespace EspacioMenuPrincipal
             }
 
 
-            await SeleccionDePersonaje.SelectorDePersonajeAsync(listaPersonajes);
+            await SeleccionDePersonaje.SelectorDePersonajes(listaPersonajes);
             await Task.Delay(1000);
         }
 
@@ -77,7 +77,7 @@ namespace EspacioMenuPrincipal
                 Mensajes.MostrarMensaje("No hay historial de ganadores aun. \nComienza un nuevo juego para empezar a agregar a los ganadores del torneo!");
             }
             Console.WriteLine("Presione una tecla para volver al menú principal...");
-            Console.ReadKey();
+            Console.ReadKey(intercept: true);
         }
     }
 

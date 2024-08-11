@@ -3,6 +3,7 @@ using EspacioPersonajes;
 using MensajesPorPantalla;
 using EspacioAsciiArt;
 using FinJuego;
+using EspacioAyuda;
 
 namespace EspacioPelea
 {
@@ -12,8 +13,8 @@ namespace EspacioPelea
 
         public static async Task InicioCombate(List<Personaje> listaPersonajes, Personaje PersonajeElegido)
         {
-            Console.Clear();
             
+            Ayuda.ExplicacionDePelea(PersonajeElegido);
             int ronda = 0;
             var Ganador = new Personaje();
             AsciiArt.MsjeComienzo();
@@ -24,7 +25,7 @@ namespace EspacioPelea
             
             AsciiArt.MsjeFin();
             Console.WriteLine("Presione una tecla para continuar...");
-            Console.ReadKey();
+            Console.ReadKey(intercept: true);
             Console.Clear();
             await FinalDeJuego.Final(Ganador);
             
@@ -44,16 +45,27 @@ namespace EspacioPelea
                 var Contrincante = listaPersonajes[IndiceContrincante];
                 listaPersonajes.Remove(Contrincante);
 
-                Console.WriteLine($"{PersonajeElegido.Nombre} (Titán {PersonajeElegido.Tipo}) contra {Contrincante.Nombre} (Titán {Contrincante.Tipo})\n");
-
+                Console.WriteLine($"{PersonajeElegido.Nombre} (TITÁN {PersonajeElegido.Tipo}) VS {Contrincante.Nombre} (TITÁN {Contrincante.Tipo})");
+                Console.WriteLine("==============================================================================================================");
+                
                 Ganador = DinamicaDePelea(PersonajeElegido, Contrincante);
 
-                Console.WriteLine(Ganador.Nombre + " es el ganador de esta ronda!");
+                Console.WriteLine();
+                Console.WriteLine(Ganador.Nombre.ToUpper() + " ES EL GANADOR DE ESTA RONDA!");
                 MejorarEstadisticas(Ganador);
                 PersonajeElegido = Ganador;
                
-                Console.WriteLine("Presione una tecla para jugar la siguiente ronda...");
-                Console.ReadKey();
+                if (ronda != 8)
+                {
+                    Console.WriteLine("\nPresione una tecla para jugar la siguiente ronda...");
+                    Console.ReadKey(intercept: true);
+                }else
+                {
+                    Task.Delay(500);
+                }
+                
+                
+
                 ronda++;
             }
 
@@ -72,7 +84,7 @@ namespace EspacioPelea
                 {
                     if (primeraVuelta)
                     {
-                        Mensajes.MostrarMensaje($"COMIENZA ATACANDO: {prota.Nombre}");
+                        Console.WriteLine($"COMIENZA ATACANDO: {prota.Nombre}");
                     }
                     Ataque(prota, contrincante);
                     turno = 0;
@@ -81,7 +93,7 @@ namespace EspacioPelea
                 {
                     if (primeraVuelta)
                     {
-                        Mensajes.MostrarMensaje($"COMIENZA ATACANDO: {contrincante.Nombre}");
+                        Console.WriteLine($"COMIENZA ATACANDO: {contrincante.Nombre}");
                     }
                     Ataque(contrincante, prota);
                     turno = 1;
@@ -102,7 +114,7 @@ namespace EspacioPelea
             }
             Console.WriteLine($"\nEl Titán {ataca.Tipo} ({ataca.Nombre}) ataca al Titán {defiende.Tipo} ({defiende.Nombre}) y causa {daño} puntos de daño. ");
             Console.WriteLine($"Salud restante de {defiende.Nombre}: {defiende.Salud}");
-            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------");
         }
 
         private static int Daño(Personaje personaje)
@@ -134,7 +146,7 @@ namespace EspacioPelea
             }
             
 
-            Console.WriteLine(personaje.Nombre + " ha mejorado sus estadísticas tras la victoria!");
+            Console.WriteLine(personaje.Nombre + " ha mejorado sus estadísticas tras la victoria!\n");
         }
     }
 } 

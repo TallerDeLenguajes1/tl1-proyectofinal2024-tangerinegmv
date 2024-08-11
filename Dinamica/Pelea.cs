@@ -51,7 +51,7 @@ namespace EspacioPelea
                 Ganador = DinamicaDePelea(PersonajeElegido, Contrincante);
 
                 Console.WriteLine();
-                Console.WriteLine(Ganador.Nombre.ToUpper() + " ES EL GANADOR DE ESTA RONDA!");
+                Console.WriteLine(Ganador.Nombre.ToUpper() + " GANA ESTA RONDA!");
                 MejorarEstadisticas(Ganador);
                 PersonajeElegido = Ganador;
                
@@ -126,7 +126,7 @@ namespace EspacioPelea
             double dañoProvocado = ((Ataque * Efectividad) - Defensa) / CteDeAjuste;
             if (dañoProvocado>100)
             {
-                dañoProvocado =100;
+                dañoProvocado =random.Next(80,100);
             }
             if (dañoProvocado<0)
             {

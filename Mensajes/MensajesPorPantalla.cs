@@ -17,14 +17,14 @@ namespace MensajesPorPantalla
             Console.WriteLine();
             Console.WriteLine("En las profundidades de la Isla Paradis, un antiguo secreto se esconde entre las sombras.");
             Console.WriteLine("Cada ser nacido en esta tierra posee un poder aterrador: el poder de un Titán.");
-            Console.WriteLine("Con el tiempo, estos seres colosales se enfrentan en un torneo sagrado para determinar al Titán Primordial.");
+            Console.WriteLine("Con el tiempo, estos seres celestiales se enfrentan en un torneo sagrado para determinar al Titán Primordial.");
             Console.WriteLine("Un torneo donde solo el más fuerte, el más astuto y el más valiente se alzará como el gobernante supremo.");
             Console.WriteLine();
             Console.WriteLine("¡Prepárate para forjar tu destino en esta épica batalla por el poder y la gloria!");
             Console.WriteLine("==========================================================================================");
             Console.WriteLine();
             Console.WriteLine("Presiona cualquier tecla para continuar...");
-            Console.ReadKey();
+            Console.ReadKey(intercept: true);
         }
         public static void mostrarPersonajes(List<Personaje> lista)
         {
@@ -56,7 +56,7 @@ namespace MensajesPorPantalla
             }
 
             Console.WriteLine("========================================================");
-            Console.WriteLine("           Historial de Ganadores                       ");
+            Console.WriteLine("            HISTORIAL DE GANADORES                      ");
             Console.WriteLine("========================================================");
             Console.WriteLine("Nombre del Ganador        | Fecha y Hora               ");
             Console.WriteLine("--------------------------------------------------------");
@@ -74,52 +74,48 @@ namespace MensajesPorPantalla
         internal static void MostrarPersonaje(Personaje personaje)
         {
            
-            Console.WriteLine("======================================================");
-            Console.WriteLine($"        {personaje.Nombre}");
-            Console.WriteLine("======================================================");
-            Console.WriteLine($"Género:      {personaje.Genero}");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"Edad:        {personaje.Edad}");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"Velocidad:   {personaje.Velocidad}");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"Destreza:    {personaje.Destreza}");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"Fuerza:      {personaje.Fuerza}");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"Nivel:       {personaje.Nivel}");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"Armadura:    {personaje.Armadura}");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"Salud:       {personaje.Salud}");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"Tipo:        {personaje.Tipo}");
-            Console.WriteLine("======================================================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine($"        {personaje.Nombre.ToUpper()}");
+            Console.WriteLine("===================================================");
+            Console.WriteLine($"     Género:      {personaje.Genero}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"     Edad:        {personaje.Edad}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"    Velocidad:   {personaje.Velocidad}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"    Destreza:    {personaje.Destreza}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"     Fuerza:      {personaje.Fuerza}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"     Nivel:       {personaje.Nivel}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"    Armadura:    {personaje.Armadura}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"     Salud:       {personaje.Salud}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"     Titan:        {personaje.Tipo}");
+            Console.WriteLine("===================================================");
         }
 
         public static void MostrarMensajeGanador(Personaje ganador)
         {
             Console.Clear();
-            Console.WriteLine("============================================================");
+            Console.WriteLine("=================================================================================================================================");
             Console.WriteLine("                      ¡VICTORIA ÉPICA!                      ");
-            Console.WriteLine("============================================================");
+            Console.WriteLine("=================================================================================================================================");
             Console.WriteLine($" ¡{ganador.Nombre.ToUpper()} ha ganado el torneo y se convierte en el TITAN PRIMORDIAL. ¡Felicidades!");
-            Console.WriteLine("------------------------------------------------------------");
-            Console.WriteLine(" Después de una gran batalla, donde la fuerza, la destreza,");
-            Console.WriteLine(" y el coraje fueron puestos a prueba, un verdadero campeón");
-            Console.WriteLine(" ha emergido de entre los titanes. Con cada golpe, con cada");
-            Console.WriteLine(" movimiento, ha demostrado que solo los más fuertes prevalecen.");
-            Console.WriteLine("------------------------------------------------------------");
-            Console.WriteLine(" Las tierras temblaron, los cielos se abrieron, y los titanes");
-            Console.WriteLine(" han sido testigos del poder inigualable de un verdadero guerrero.");
+            Console.WriteLine("                     ------------------------------------------------------------");
+            Console.WriteLine(" Después de una gran batalla, donde la fuerza, la destreza, y el coraje fueron puestos a prueba, un verdadero campeón");
+            Console.WriteLine(" ha emergido de entre los titanes. Con cada golpe, con cada movimiento, ha demostrado que solo los más fuertes prevalecen.");
+            Console.WriteLine("                    ------------------------------------------------------------");
+            Console.WriteLine(" Las tierras temblaron, los cielos se abrieron, y los titanes han sido testigos del poder inigualable de un verdadero guerrero.");
             Console.WriteLine($" ¡El nombre de {ganador.Nombre} resonará por la eternidad!");
-            Console.WriteLine("------------------------------------------------------------");
-            Console.WriteLine("    Que la leyenda de este día sea contada en canciones,    ");
-            Console.WriteLine("    y que los futuros guerreros se arrodillen ante la grandeza.    ");
-            Console.WriteLine("============================================================");
+            Console.WriteLine("                    ------------------------------------------------------------");
+            Console.WriteLine(" Que la leyenda de este día sea contada en canciones, y que los futuros guerreros se arrodillen ante la grandeza.    ");
+            Console.WriteLine("=================================================================================================================================");
             Console.WriteLine();
             // Console.WriteLine(" Presiona cualquier tecla para cerrar...");
-            // Console.ReadKey();
+            // Console.ReadKey(intercept: true);
         }
 
           
@@ -140,17 +136,18 @@ namespace MensajesPorPantalla
         }
         public static void MostrarMensajeRonda(int ronda)
         {
-            Console.WriteLine("==========================================================================================");
-            Console.WriteLine($"                           Ronda {ronda}");
-            Console.WriteLine("==========================================================================================");
+            Console.WriteLine("=========================================================================================================");
+            Console.WriteLine($"                           RONDA {ronda}");
+            Console.WriteLine("=========================================================================================================");
         }
 
         public static void MostrarMensaje(string mensaje)
         {
-            Console.WriteLine("==========================================================================================");
+            Console.WriteLine("========================================================================================================");
             Console.WriteLine($"                {mensaje}");
-            Console.WriteLine("==========================================================================================");
+            Console.WriteLine("========================================================================================================");
         }
+        
         
     }
     

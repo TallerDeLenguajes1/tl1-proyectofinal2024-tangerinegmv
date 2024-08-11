@@ -46,5 +46,85 @@
       "Tipo": 3
     },
     "Hora": "0724-08-10T20:32:10"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 4,
+      "Fuerza": 10,
+      "Nivel": 4,
+      "Armadura": 10,
+      "Salud": 16,
+      "Nombre": "Dieter",
+      "Genero": "Hombre",
+      "FecNac": "0701-08-18T00:00:00",
+      "Edad": 30,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-10T21:52:31"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 9,
+      "Destreza": 5,
+      "Fuerza": 10,
+      "Nivel": 2,
+      "Armadura": 10,
+      "Salud": 92,
+      "Nombre": "Buchwald",
+      "Genero": "Hombre",
+      "FecNac": "0702-06-10T00:00:00",
+      "Edad": 34,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-10T22:13:47"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 9,
+      "Destreza": 5,
+      "Fuerza": 10,
+      "Nivel": 2,
+      "Armadura": 10,
+      "Salud": 100,
+      "Nombre": "Buchwald",
+      "Genero": "Hombre",
+      "FecNac": "0702-06-10T00:00:00",
+      "Edad": 34,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-10T22:24:21"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 4,
+      "Fuerza": 10,
+      "Nivel": 4,
+      "Armadura": 10,
+      "Salud": 35,
+      "Nombre": "Dieter",
+      "Genero": "Hombre",
+      "FecNac": "0701-08-18T00:00:00",
+      "Edad": 30,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-10T22:26:05"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 4,
+      "Fuerza": 10,
+      "Nivel": 4,
+      "Armadura": 10,
+      "Salud": 92,
+      "Nombre": "Dieter",
+      "Genero": "Hombre",
+      "FecNac": "0701-08-18T00:00:00",
+      "Edad": 30,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T16:15:11"
   }
 ]

@@ -137,17 +137,38 @@ namespace EspacioPelea
 
         private static void MejorarEstadisticas(Personaje personaje)
         {
-            if (personaje.Armadura <=5)
+            // Mejora de estadísticas por tipo de personaje
+            switch (personaje.Tipo)
             {
-                personaje.Armadura += 5;
-            }else
-            {
-                personaje.Armadura = 10;
-            }
-            
+                case TipoPersonaje.Colosal:
+                    personaje.Fuerza += random.Next(1, 3);
+                    personaje.Armadura = Math.Min(personaje.Armadura + random.Next(1, 3), 10);
+                    break;
 
-            Console.WriteLine(personaje.Nombre + " ha mejorado sus estadísticas tras la victoria!\n");
+                case TipoPersonaje.Acorazado:
+                    personaje.Armadura = Math.Min(personaje.Armadura + random.Next(2, 4), 10);
+                    personaje.Fuerza += random.Next(1, 2);
+                    break;
+
+                case TipoPersonaje.Ataque:
+                    personaje.Fuerza += random.Next(1, 3);
+                    personaje.Velocidad += random.Next(1, 3);
+                    personaje.Armadura = Math.Min(personaje.Armadura + random.Next(1, 2), 10);
+                    break;
+
+                case TipoPersonaje.Bestia:
+                    personaje.Armadura = Math.Min(personaje.Armadura + random.Next(2, 4), 10);
+                    personaje.Fuerza += random.Next(1, 3);
+                    break;
+            }
+
+            
+            personaje.Nivel = Math.Min(personaje.Nivel + 1, 5);
+
+            Console.WriteLine($"{personaje.Nombre} ha mejorado sus estadísticas tras la victoria!");
+            
         }
+
     }
 } 
 

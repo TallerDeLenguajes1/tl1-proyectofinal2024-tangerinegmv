@@ -47,29 +47,28 @@ namespace MensajesPorPantalla
 
   
 
-        public static void MostrarHistorial(List<HistorialJson> listaHistorial)
-        {
-            if (listaHistorial == null || listaHistorial.Count == 0)
-            {
-                Console.WriteLine("No hay registros en el historial.");
-                return;
-            }
+       public static void MostrarHistorial(List<HistorialJson> listaHistorial)
+{
+    if (listaHistorial == null || listaHistorial.Count == 0)
+    {
+        Console.WriteLine("No hay registros en el historial.");
+        return;
+    }
 
-            Console.WriteLine("========================================================");
-            Console.WriteLine("            HISTORIAL DE GANADORES                      ");
-            Console.WriteLine("========================================================");
-            Console.WriteLine("Nombre del Ganador        | Fecha y Hora               ");
-            Console.WriteLine("--------------------------------------------------------");
+    Console.WriteLine("========================================================");
+    Console.WriteLine("            HISTORIAL DE GANADORES                      ");
+    Console.WriteLine("========================================================");
+    Console.WriteLine("Nombre del Ganador        | Tipo de Titán | Fecha y Hora");
+    Console.WriteLine("--------------------------------------------------------");
 
-            foreach (var registro in listaHistorial)
-            {
-                
-                
-                Console.WriteLine($"{registro.Ganador.Nombre,-25} | {registro.Hora}");
-            }
+    foreach (var registro in listaHistorial)
+    {
+        Console.WriteLine($"{registro.Ganador.Nombre,-25} | {registro.Ganador.Tipo,-14} | {registro.Hora}");
+    }
 
-            Console.WriteLine("========================================================");
-        }
+    Console.WriteLine("========================================================");
+}
+
 
         internal static void MostrarPersonaje(Personaje personaje)
         {

@@ -102,41 +102,38 @@ namespace EspacioFabricaDePersonajes
             };
             if (Nuevo.Tipo == TipoPersonaje.Colosal)
             {
-                Nuevo.Fuerza=random.Next(9,11);
-                Nuevo.Velocidad = random.Next(5,11);
-                Nuevo.Destreza = random.Next(4,6);
-                Nuevo.Nivel = random.Next(1,5);
-                Nuevo.Armadura = random.Next(1,2);
-                
+                Nuevo.Fuerza = random.Next(5, 8);       
+                Nuevo.Velocidad = random.Next(3, 7);    
+                Nuevo.Destreza = random.Next(2, 5);     
+                Nuevo.Nivel = random.Next(1, 6);        
+                Nuevo.Armadura = random.Next(2, 4);     
             }
 
             if (Nuevo.Tipo == TipoPersonaje.Acorazado)
             {
-                Nuevo.Fuerza=random.Next(7,11);
-                Nuevo.Velocidad = random.Next(3,6);
-                Nuevo.Destreza = random.Next(1,4);
-                Nuevo.Nivel = random.Next(1,5);
-                Nuevo.Armadura = random.Next(3,5);
+                Nuevo.Fuerza = random.Next(6, 9);       
+                Nuevo.Velocidad = random.Next(4, 7);    
+                Nuevo.Destreza = random.Next(2, 5);     
+                Nuevo.Nivel = random.Next(1, 6);        
+                Nuevo.Armadura = random.Next(4, 6);   
             }
-            
+
             if (Nuevo.Tipo == TipoPersonaje.Ataque)
             {
-                Nuevo.Fuerza=random.Next(7,11);
-                Nuevo.Velocidad = random.Next(7,11);
-                Nuevo.Destreza = random.Next(2,4);
-                Nuevo.Nivel = random.Next(1,5);
-                Nuevo.Armadura = random.Next(1,3);
-               
-             }
+                Nuevo.Fuerza = random.Next(6, 10);      
+                Nuevo.Velocidad = random.Next(5, 8);   
+                Nuevo.Destreza = random.Next(3, 6);     
+                Nuevo.Nivel = random.Next(1, 6);       
+                Nuevo.Armadura = random.Next(2, 4);   
+            }
 
             if (Nuevo.Tipo == TipoPersonaje.Bestia)
             {
-                Nuevo.Fuerza=random.Next(5,8);
-                Nuevo.Velocidad = random.Next(2,4);
-                Nuevo.Destreza = random.Next(1,3);
-                Nuevo.Nivel = random.Next(1,5);
-                Nuevo.Armadura = random.Next(8,11);
-               
+                Nuevo.Fuerza = random.Next(5, 8);    
+                Nuevo.Velocidad = random.Next(4, 8);   
+                Nuevo.Destreza = random.Next(2, 5);   
+                Nuevo.Nivel = random.Next(1, 6);     
+                Nuevo.Armadura = random.Next(5, 8);   
             }
 
             return Nuevo;

@@ -4,7 +4,7 @@
 
 ## **Acerca del Juego**
 
-**Torneo de Titanes** ofrece una experiencia envolvente en la que los jugadores asumen el rol de titanes en un torneo de combate. Cada titan tiene estadísticas únicas y habilidades que influyen en el desarrollo de la pelea. El objetivo es avanzar a través de las rondas del torneo, derrotando a otros titanes y mejorando tus habilidades hasta convertirte en el campeón.
+**Torneo de Titanes** ofrece una experiencia en la que los jugadores asumen el rol de titanes en un torneo de combate. Cada titan tiene estadísticas únicas y habilidades que influyen en el desarrollo de la pelea. El objetivo es avanzar a través de las rondas del torneo, derrotando a otros titanes y mejorando tus habilidades hasta convertirte en el campeón.
 
 ## **Modo de Juego**
 

@@ -19,6 +19,19 @@
 4. **Historial de Ganadores**:
    - Al finalizar el torneo, el juego muestra un Historial de ganadores, con todos los Titanes que han llegado a ser el Titán Primordial y datos de fecha y hora de la victoria.
 
+## Uso de la API
+
+En este proyecto se ha utilizado una API que proporciona información detallada sobre los personajes del anime **Attack on Titan (AOT)**. La API contiene datos sobre una amplia variedad de personajes, incluyendo su nombre, género, edad y más, lo cual ha sido fundamental para la creación de los personajes del juego.
+
+#### ¿Cómo se usa en el juego?
+
+En el proceso de creación de personajes para el juego, se hace una solicitud a la API para obtener información aleatoria sobre los personajes del anime. Luego, estos datos son adaptados para ajustarse al sistema de combate y estadísticas del juego, permitiendo que cada partida tenga una selección única y variada de personajes con los que competir.
+
+#### Enlace a la API
+
+Puedes encontrar más información sobre la API utilizada en este proyecto y explorar su documentación en el siguiente enlace:  
+[API de Attack on Titan](https://www.attackontitanapi.com/)
+
 ## **Requisitos del Sistema**
 
 1. **Sistema Operativo**: Windows, MacOS, Linux

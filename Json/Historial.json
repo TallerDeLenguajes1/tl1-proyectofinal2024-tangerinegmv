@@ -142,5 +142,117 @@
       "Tipo": 0
     },
     "Hora": "0724-08-11T16:39:46"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 6,
+      "Destreza": 4,
+      "Fuerza": 10,
+      "Nivel": 4,
+      "Armadura": 10,
+      "Salud": 100,
+      "Nombre": "Gordon",
+      "Genero": "Hombre",
+      "FecNac": "0701-10-08T00:00:00",
+      "Edad": 34,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T16:51:33"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 6,
+      "Destreza": 4,
+      "Fuerza": 10,
+      "Nivel": 4,
+      "Armadura": 6,
+      "Salud": 100,
+      "Nombre": "Gordon",
+      "Genero": "Hombre",
+      "FecNac": "0701-10-08T00:00:00",
+      "Edad": 34,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T16:52:10"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 9,
+      "Destreza": 3,
+      "Fuerza": 9,
+      "Nivel": 3,
+      "Armadura": 10,
+      "Salud": 100,
+      "Nombre": "Dieter",
+      "Genero": "Hombre",
+      "FecNac": "0703-07-12T00:00:00",
+      "Edad": 27,
+      "Tipo": 3
+    },
+    "Hora": "0724-08-11T17:18:29"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 8,
+      "Destreza": 5,
+      "Fuerza": 9,
+      "Nivel": 4,
+      "Armadura": 10,
+      "Salud": 100,
+      "Nombre": "Marlo Freudenberg",
+      "Genero": "Hombre",
+      "FecNac": "0702-08-18T00:00:00",
+      "Edad": 32,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T17:20:15"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 7,
+      "Destreza": 4,
+      "Fuerza": 10,
+      "Nivel": 2,
+      "Armadura": 10,
+      "Salud": 100,
+      "Nombre": "Dieter",
+      "Genero": "Hombre",
+      "FecNac": "0701-11-05T00:00:00",
+      "Edad": 30,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T17:20:53"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 5,
+      "Fuerza": 9,
+      "Nivel": 1,
+      "Armadura": 10,
+      "Salud": 38,
+      "Nombre": "Lima",
+      "Genero": "Mujer",
+      "FecNac": "0700-08-27T00:00:00",
+      "Edad": 29,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T17:26:11"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 5,
+      "Fuerza": 10,
+      "Nivel": 3,
+      "Armadura": 10,
+      "Salud": 2,
+      "Nombre": "Conny Springer",
+      "Genero": "Hombre",
+      "FecNac": "0703-06-13T00:00:00",
+      "Edad": 19,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-11T17:27:40"
   }
 ]

@@ -1,4 +1,4 @@
-# **Torneo de Titanes**
+# **Torneo de Titanes** (AOT AU)
 
 **Torneo de Titanes** es un juego de rol (RPG) basado en un universo alternativo de Attack on Titan. Los jugadores pueden enfrentarse en un torneo épico, eligiendo entre diversos titanes y luchando en un combate estratégico por turnos hasta alcanzar la victoria final.
 

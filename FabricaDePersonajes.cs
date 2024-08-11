@@ -156,7 +156,7 @@ namespace EspacioFabricaDePersonajes
             }
             return listaPersonajes;
         } 
-        public static void mostrarPersonajes(List<Personaje> lista)
+        /* public static void mostrarPersonajes(List<Personaje> lista)
         {
             int i=0;
             foreach (var personaje in lista)
@@ -166,7 +166,7 @@ namespace EspacioFabricaDePersonajes
                 System.Console.WriteLine("Nivel: " + personaje.Nivel + " Armadura: " + personaje.Armadura + " Salud: " + personaje.Salud);
                 i++;
             }
-        }
+        } */
     }
        
 
@@ -174,4 +174,3 @@ namespace EspacioFabricaDePersonajes
 
     
 }
-//https://api.namefake.com/

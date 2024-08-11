@@ -21,7 +21,7 @@ namespace MensajesPorPantalla
             Console.WriteLine("Un torneo donde solo el más fuerte, el más astuto y el más valiente se alzará como el gobernante supremo.");
             Console.WriteLine();
             Console.WriteLine("¡Prepárate para forjar tu destino en esta épica batalla por el poder y la gloria!");
-            Console.WriteLine("==========================================================================================");
+            Console.WriteLine("========================================================================================================================");
             Console.WriteLine();
             Console.WriteLine("Presiona cualquier tecla para continuar...");
             Console.ReadKey(intercept: true);
@@ -55,18 +55,18 @@ namespace MensajesPorPantalla
         return;
     }
 
-    Console.WriteLine("========================================================");
+    Console.WriteLine("================================================================");
     Console.WriteLine("            HISTORIAL DE GANADORES                      ");
-    Console.WriteLine("========================================================");
+    Console.WriteLine("================================================================");
     Console.WriteLine("Nombre del Ganador        | Tipo de Titán | Fecha y Hora");
-    Console.WriteLine("--------------------------------------------------------");
+    Console.WriteLine("----------------------------------------------------------------");
 
     foreach (var registro in listaHistorial)
     {
         Console.WriteLine($"{registro.Ganador.Nombre,-25} | {registro.Ganador.Tipo,-14} | {registro.Hora}");
     }
 
-    Console.WriteLine("========================================================");
+    Console.WriteLine("================================================================");
 }
 
 
@@ -92,7 +92,7 @@ namespace MensajesPorPantalla
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine($"     Salud:       {personaje.Salud}");
             Console.WriteLine("--------------------------------------------------");
-            Console.WriteLine($"     Titan:        {personaje.Tipo}");
+            Console.WriteLine($"     Titan:      {personaje.Tipo}");
             Console.WriteLine("===================================================");
         }
 
@@ -113,8 +113,7 @@ namespace MensajesPorPantalla
             Console.WriteLine(" Que la leyenda de este día sea contada en canciones, y que los futuros guerreros se arrodillen ante la grandeza.    ");
             Console.WriteLine("=================================================================================================================================");
             Console.WriteLine();
-            // Console.WriteLine(" Presiona cualquier tecla para cerrar...");
-            // Console.ReadKey(intercept: true);
+           
         }
 
           

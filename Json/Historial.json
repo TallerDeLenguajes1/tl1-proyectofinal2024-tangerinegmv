@@ -142,5 +142,37 @@
       "Tipo": 0
     },
     "Hora": "0724-08-11T18:26:41"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 12,
+      "Destreza": 4,
+      "Fuerza": 11,
+      "Nivel": 5,
+      "Armadura": 5,
+      "Salud": 18,
+      "Nombre": "Dirk",
+      "Genero": "Hombre",
+      "FecNac": "0701-12-18T00:00:00",
+      "Edad": 23,
+      "Tipo": 3
+    },
+    "Hora": "0724-08-11T18:30:53"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 3,
+      "Fuerza": 8,
+      "Nivel": 5,
+      "Armadura": 7,
+      "Salud": 3,
+      "Nombre": "Lobov",
+      "Genero": "Hombre",
+      "FecNac": "0702-12-14T00:00:00",
+      "Edad": 27,
+      "Tipo": 2
+    },
+    "Hora": "0724-08-11T18:35:56"
   }
 ]

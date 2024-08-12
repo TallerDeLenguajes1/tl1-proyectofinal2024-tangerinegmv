@@ -20,7 +20,7 @@ namespace EspacioHistorial
             
             listaHistorial.Add(datos);
              // Guardo solo los 15 ultimos
-            if (listaHistorial.Count > 15)
+            while (listaHistorial.Count > 15)
             {
                 listaHistorial.RemoveAt(0);
             }

@@ -1,22 +1,6 @@
 [
   {
     "Ganador": {
-      "Velocidad": 5,
-      "Destreza": 3,
-      "Fuerza": 9,
-      "Nivel": 5,
-      "Armadura": 10,
-      "Salud": 83,
-      "Nombre": "Buchwald",
-      "Genero": "Hombre",
-      "FecNac": "0700-05-28T00:00:00",
-      "Edad": 27,
-      "Tipo": 1
-    },
-    "Hora": "0724-08-11T17:56:11"
-  },
-  {
-    "Ganador": {
       "Velocidad": 4,
       "Destreza": 4,
       "Fuerza": 7,
@@ -174,5 +158,85 @@
       "Tipo": 2
     },
     "Hora": "0724-08-11T18:35:56"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 4,
+      "Destreza": 4,
+      "Fuerza": 9,
+      "Nivel": 5,
+      "Armadura": 9,
+      "Salud": 61,
+      "Nombre": "Sasha Braus",
+      "Genero": "Mujer",
+      "FecNac": "0700-03-15T00:00:00",
+      "Edad": 20,
+      "Tipo": 1
+    },
+    "Hora": "0724-08-12T09:42:57"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 4,
+      "Destreza": 2,
+      "Fuerza": 8,
+      "Nivel": 5,
+      "Armadura": 7,
+      "Salud": 8,
+      "Nombre": "Marlo Freudenberg",
+      "Genero": "Hombre",
+      "FecNac": "0700-06-10T00:00:00",
+      "Edad": 24,
+      "Tipo": 1
+    },
+    "Hora": "0724-08-12T10:04:27"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 4,
+      "Destreza": 2,
+      "Fuerza": 15,
+      "Nivel": 5,
+      "Armadura": 10,
+      "Salud": 36,
+      "Nombre": "Sasha Braus",
+      "Genero": "Mujer",
+      "FecNac": "0705-08-18T00:00:00",
+      "Edad": 20,
+      "Tipo": 1
+    },
+    "Hora": "0724-08-12T11:42:44"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 5,
+      "Destreza": 3,
+      "Fuerza": 7,
+      "Nivel": 5,
+      "Armadura": 5,
+      "Salud": 43,
+      "Nombre": "Hannes",
+      "Genero": "Hombre",
+      "FecNac": "0703-10-23T00:00:00",
+      "Edad": 26,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-12T11:46:05"
+  },
+  {
+    "Ganador": {
+      "Velocidad": 3,
+      "Destreza": 3,
+      "Fuerza": 11,
+      "Nivel": 5,
+      "Armadura": 8,
+      "Salud": 19,
+      "Nombre": "Floch Forster",
+      "Genero": "Hombre",
+      "FecNac": "0704-08-24T00:00:00",
+      "Edad": 25,
+      "Tipo": 0
+    },
+    "Hora": "0724-08-12T12:03:11"
   }
 ]

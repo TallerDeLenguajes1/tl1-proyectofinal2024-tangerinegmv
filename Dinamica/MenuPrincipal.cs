@@ -52,7 +52,7 @@ namespace EspacioMenuPrincipal
                     await CargarDatos.CargandoPersonajes();
                 }else
                 {
-                    await PersonajesJson.RecargaDePersonajes(archivoPersonajes);
+                    listaPersonajes = await PersonajesJson.RecargaDePersonajes(archivoPersonajes);
                 }
                
             }else

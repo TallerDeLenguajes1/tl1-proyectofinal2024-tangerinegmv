@@ -29,18 +29,22 @@ namespace EspacioJson
             try
             {
                 HttpClient cliente = new HttpClient();
-                var url = "https://api.attackontitanapi.com/characters";
+                var url = "https://api.attackontitanapi.com/characters/1,2,3,4,5,8,10,12,57,66,67,74,86,87,88,89,90,91,95,101,184,193,188";
                 HttpResponseMessage respuesta = await cliente.GetAsync(url);
                 respuesta.EnsureSuccessStatusCode();
 
                 string responseBody = await respuesta.Content.ReadAsStringAsync();
-                var contenidoApi = JsonSerializer.Deserialize<Root>(responseBody, new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
+                var contenidoApi = JsonSerializer.Deserialize<List<PersonajeDatos>>(responseBody, new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
     
-                if (contenidoApi != null && contenidoApi.Items != null)
+                if (contenidoApi != null)
                 {
-                    foreach (var personaje in contenidoApi.Items)
+                    foreach (var personaje in contenidoApi)
                     {
-                        listaPersonajes.Add(personaje);
+                        if (personaje != null)
+                        {
+                            listaPersonajes.Add(personaje);
+                        }
+                        
                     
                     }
                 }
@@ -85,11 +89,12 @@ namespace EspacioJson
             return File.Exists(fileName);
         }
 
-        public static async Task RecargaDePersonajes(string fileName)
+       public static async Task<List<Personaje>> RecargaDePersonajes(string fileName)
         {
+            List<Personaje> listaPersonajes = null;
+
             if (Existe(fileName))
             {
-
                 ConsoleKeyInfo tecla;
                 char answer;
                 bool control;
@@ -108,20 +113,25 @@ namespace EspacioJson
                         File.Delete(fileName);
                         Console.WriteLine("Creando nuevos personajes...");
                         await CargarDatos.CargandoPersonajes();
-                    }else if (answer == 's' || answer == 'S')
+                        listaPersonajes = PersonajesJson.LeerPersonajes(fileName);
+                    }
+                    else if (answer == 'S' || answer == 's')
                     {
                         Console.WriteLine("Se usará la lista de personajes precargada.");
                         await Task.Delay(3000);
-                    }else
+                        listaPersonajes = PersonajesJson.LeerPersonajes(fileName);
+                    }
+                    else
                     {
                         Console.WriteLine("Ingrese S o N");
                         control = false;
                     }
                 } while (!control);
-                
-               
             }
+
+            return listaPersonajes;
         }
+
     }
         
 

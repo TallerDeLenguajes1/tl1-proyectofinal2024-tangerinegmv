@@ -2,7 +2,11 @@ namespace EspacioApi
 {
     using System.Text.Json;
     using System.Text.Json.Serialization;
-    // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
+   
+    
+
+
+// Root myDeserializedClass = JsonSerializer.Deserialize<List<Root>>(myJsonResponse);
     public class Group
     {
         [JsonPropertyName("name")]
@@ -10,21 +14,6 @@ namespace EspacioApi
 
         [JsonPropertyName("sub_groups")]
         public List<string> sub_groups { get; set; }
-    }
-
-    public class Info
-    {
-        [JsonPropertyName("count")]
-        public int count { get; set; }
-
-        [JsonPropertyName("pages")]
-        public int pages { get; set; }
-
-        [JsonPropertyName("next_page")]
-        public string next_page { get; set; }
-
-        [JsonPropertyName("prev_page")]
-        public object prev_page { get; set; }
     }
 
     public class Relative
@@ -87,15 +76,4 @@ namespace EspacioApi
         public List<string> episodes { get; set; }
     }
 
-    public class Root
-    {
-        [JsonPropertyName("info")]
-        public Info info { get; set; }
-
-        [JsonPropertyName("results")]
-        public List<PersonajeDatos> Items { get; set; }
-    }
-
-    
 }
-

@@ -22,13 +22,14 @@
 ## Uso de la API
 
 En este proyecto se ha utilizado la API **Attack on Titan API**, que devuelve información detallada del anime, donde se puede elegir entre cinco categorias de datos.
-   **characters**	"https://api.attackontitanapi.com/characters"
-   **episodes**	"https://api./attackontitanapi.com/episodes"
-   **locations**	"https://api.attackontitanapi.com/locations"
-   **organizations**	"https://api.attackontitanapi.com/organizations"
-   **titans**	"https://api.attackontitanapi.com/titans"
+  - **characters**	"https://api.attackontitanapi.com/characters"
+  - **episodes**	"https://api./attackontitanapi.com/episodes"
+  - **locations**	"https://api.attackontitanapi.com/locations"
+  - **organizations**	"https://api.attackontitanapi.com/organizations"
+  - **titans**	"https://api.attackontitanapi.com/titans"
 
 En este juego se utiliza la categoria **characters**, y se le agrega como parametro, el id de los personajes de los que quiero informacion, de la siguiente manera:
+
 ```https://api.attackontitanapi.com/characters/1,2,3,4,5,8,10,12,57,66,67,74,86,87,88,89,90,91,95,101,184,193,188```
 
 Esto devuelve una lista de 23 personajes con sus repectivos datos, tales como, su nombre, edad, tipo de titan, etc.
@@ -82,7 +83,7 @@ La API devuelve la siguiente estructura al solicitarla con extension .json:
         [JsonPropertyName("episodes")]
         public List<string> episodes { get; set; }
     }
-    ```
+```
 
 #### ¿Cómo se usa en el juego?
 
